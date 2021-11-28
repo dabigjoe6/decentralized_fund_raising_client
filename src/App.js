@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from 'react';
+import {WalletContext} from './contexts/Wallet';
+const App = () => {
 
-function App() {
+  const {connectWallet, address} = useContext(WalletContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Funds balance: 10000 ETH</h1>
+      <button onClick={connectWallet}>{address ? address : 'Connect wallet'}</button>
+      <input type="number" />
+      <button>Stake</button>
     </div>
-  );
-}
+  )
+};
 
 export default App;
